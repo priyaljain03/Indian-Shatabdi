@@ -10,7 +10,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <>
-                <nav className="nav-extended" style={{ backgroundColor: '#c62828' }}>
+                <nav className="nav-extended" style={{ backgroundColor: 'black' }}>
                     <div className="nav-wrapper">
                         <Link to="#" className="brand-logo">NewsMonkey</Link>
                         <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
