@@ -69,14 +69,6 @@ const Navbar = (props) => {
                     </ul>
                 </div>
             </nav>
-
-            {/* <ul className="sidenav" id="mobile-demo">
-                <li><Link to="sass.html">Sass</Link></li>
-                <li><Link to="badges.html">Components</Link></li>
-                <li><Link to="collapsible.html">JavaScript</Link></li>
-            </ul> */}
-
-
         </div>
     )
 
