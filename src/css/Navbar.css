@@ -1,0 +1,33 @@
+.nav-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.brand-logo {
+  font-size: 20px !important;
+}
+
+.nav-content li {
+  text-transform: capitalize !important;
+}
+
+.nav-content-dark li {
+  text-transform: capitalize !important;
+}
+
+.nav-content li:hover {
+  background-color: rgb(202, 48, 48);
+}
+
+.nav-content-dark li:hover {
+  background-color: rgb(61, 60, 60) !important;
+  opacity: 0.6;
+}
+
+.tab-active {
+  background-color: rgb(202, 48, 48) !important;
+}
+
+.tab-active-dark {
+  background-color: rgb(61, 60, 60) !important;
+}
