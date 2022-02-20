@@ -20,7 +20,6 @@ const ThemeState = (props) => {
     return (
         <themeContext.Provider value={{ switchState, switchTheme }}>
             {props.children}
-
         </themeContext.Provider>
     )
 }

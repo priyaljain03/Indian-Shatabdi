@@ -1,0 +1,21 @@
+.error__box{
+    background-color:rgb(211, 191, 16);
+    height:150px;
+    width:600px;
+    border-radius:10px;
+    font-size:25px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    margin-top:100px
+}
+
+.icon{
+    font-size: 80px;
+    padding:10px
+}
+
+.error__box p{
+    text-align:left;
+    padding:10px;
+}

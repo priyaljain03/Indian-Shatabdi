@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
+import Error from './components/Error';
 import {
   BrowserRouter as Router, Routes, Route
 } from "react-router-dom"
@@ -30,7 +31,9 @@ const App = (props) => {
           <Route exact path="/technology" element={<News setProgress={setProgress} key="technology" apiKey={apiKey} pageSize={20} country='in' category="technology" />}></Route>
           <Route exact path="/general" element={<News setProgress={setProgress} key="general" apiKey={apiKey} pageSize={20} country='in' category="general" />}></Route>
           <Route exact path="/entertainment" element={<News setProgress={setProgress} key="entertainment" apiKey={apiKey} pageSize={20} country='in' category="entertainment" />}></Route>
+          <Route exact path="/error" element={<Error />}></Route>
         </Routes>
+        
 
       </Router>
     </ThemeState>

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
@@ -12,21 +13,26 @@ const News = (props) => {
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
     const [totalArticles, settotalArticles] = useState(0)
-
+    const navigate = useNavigate()
 
     const updateNews = async (pageNo) => {
         props.setProgress(10)
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${pageNo}&pageSize=${props.pageSize}`
+        const url = `https://newsapi.org/v28/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${pageNo}&pageSize=${props.pageSize}`
         setLoading({ loading: true })
-        let data = await fetch(url);
-        props.setProgress(30)
-        let parsedData = await data.json()
-        props.setProgress(80)
-        setArticles(parsedData.articles)
-        setLoading(false)
-        setPage(pageNo)
-        settotalArticles(parsedData.totalResults)
-        props.setProgress(100)
+        let data = await fetch(url).then((data=>{
+            props.setProgress(30)
+            return data.json()
+        }))
+        .then(parsedData=>{
+            props.setProgress(80)
+            setArticles(parsedData.articles)
+            setLoading(false)
+            setPage(pageNo)
+            settotalArticles(parsedData.totalResults)
+            props.setProgress(100)
+        }).catch(error=>{
+            navigate('/error');
+        })
     }
 
 
@@ -40,19 +46,22 @@ const News = (props) => {
         setPage({ page: page + 1 })
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`
         setLoading({ loading: true })
-        let data = await fetch(url);
-        let parsedData = await data.json()
-        setArticles(articles.concat(parsedData.articles))
-        setLoading(false)
-        settotalArticles(parsedData.totalResults)
-
+        let data = await fetch(url).then(data=>{
+            return data.json()
+        }).then(parsedData=>{
+            setArticles(articles.concat(parsedData.articles))
+            setLoading(false)
+            settotalArticles(parsedData.totalResults)
+        })
+        .catch(error=>{
+            navigate('/error')
+            alert('Something went Wrong')
+        })
     };
 
 
     return (
         <div style={{ marginTop: '100px' }}>
-
-
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}
