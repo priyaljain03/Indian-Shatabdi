@@ -5,7 +5,7 @@ It Uses ReactJs , CSS , Html as major technologies .
 
 Front-end has been created with some components like Infinite scrolling , Top Loading Bar etc .
 
-![](./images/image screenshot 1.png)
+![](./images/image_screenshot_1.png)
 
 Also user can switch to dark as well as light theme .
 
